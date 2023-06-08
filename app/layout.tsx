@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./globals.css";
 
 export const metadata = {
@@ -15,23 +16,23 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <h1>
-          <a href="/">Web</a>
+          <Link href="/">Web</Link>
         </h1>
         <ol>
           {/* @ts-ignore */}
           {data.map((topic) => (
             <li>
-              <a href={`/read/${topic.id}`}>{topic.title}</a>
+              <Link href={`/read/${topic.id}`}>{topic.title}</Link>
             </li>
           ))}
         </ol>
         {children}
         <ul>
           <li>
-            <a href="/create">create</a>
+            <Link href="/create">create</Link>
           </li>
           <li>
-            <a href="/update/1">update</a>
+            <Link href="/update/1">update</Link>
           </li>
           <li>
             <button>delete</button>
