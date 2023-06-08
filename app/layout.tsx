@@ -10,7 +10,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const resp = await fetch(process.env.NEXT_PUBLIC_API_URL + "topics");
+  // https://nextjs.org/docs/app/building-your-application/data-fetching/caching#fetch
+  const resp = await fetch(process.env.NEXT_PUBLIC_API_URL + "topics", {
+    next: { revalidate: 0 },
+  });
   const data = await resp.json();
   return (
     <html lang="en">
